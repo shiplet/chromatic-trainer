@@ -2,8 +2,15 @@ header {
     text-align: center;
 }
 
-p {
+p,
+form,
+input {
     margin-bottom: 0;
+}
+
+#result {
+    margin: 10px 0;
+    font-size: 2.5rem;
 }
 
 .bump-top {
@@ -61,4 +68,8 @@ button {
 
 .as-columns {
     flex-direction: column;
+}
+
+.hide {
+    display: none;
 }

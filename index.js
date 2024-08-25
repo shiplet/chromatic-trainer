@@ -14,6 +14,7 @@
     "G#",
   ];
   const operators = ["+", "-"];
+  let next = false;
   let activeNote,
     operator,
     interval,
@@ -58,8 +59,10 @@
   }
 
   function resetPrompt() {
+    next = false;
     intervalForm.reset();
     setPrompt();
+    swapCheckAndNext();
   }
 
   function setPrompt() {
@@ -99,8 +102,24 @@
   }
 
   function displayAnswer(answer, correct) {
-    result.textContent =
+    const isCorrect =
       answer === correct ? "Correct!" : `Try again: ${notes[correct]}`;
+    result.textContent = isCorrect;
+    next = true;
+
+    if (isCorrect) {
+      swapCheckAndNext();
+    }
+  }
+
+  function swapCheckAndNext() {
+    if (next) {
+      reset.classList.remove("hide");
+      check.classList.add("hide");
+    } else {
+      reset.classList.add("hide");
+      check.classList.remove("hide");
+    }
   }
 
   function createNoteElement(note) {
