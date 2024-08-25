@@ -63,6 +63,7 @@
     intervalForm.reset();
     setPrompt();
     swapCheckAndNext();
+    intervalForm.querySelector("input").focus();
   }
 
   function setPrompt() {
