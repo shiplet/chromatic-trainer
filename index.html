@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Chromatic Trainer</title>
+        <link rel="stylesheet" href="normalize.css" />
+        <link rel="stylesheet" href="skeleton.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app" class="container bump-top">
+            <header class="bump-bottom">
+                <h1>Chromatic Trainer</h1>
+                <hr />
+            </header>
+            <div class="row quiz bump-bottom">
+                <div id="active-note" class="four columns centered">
+                    <div class="box centered"></div>
+                </div>
+                <div id="operator" class="four columns centered">
+                    <div class="box centered"></div>
+                </div>
+                <div id="interval" class="four columns centered">
+                    <div class="box centered"></div>
+                </div>
+            </div>
+            <div class="row centered as-columns bump-bottom">
+                <div class="four columns centered">
+                    <form id="interval-form">
+                        <input
+                            autofocus
+                            maxlength="2"
+                            id="answer"
+                            class="form-input box wide bordered"
+                            placeholder="Ans"
+                        />
+                    </form>
+                </div>
+                <div id="result">&nbsp;</div>
+            </div>
+            <div class="space-evenly">
+                <button id="reset" class="button-secondary">Reset</button>
+                <button id="check" class="button-primary">Check</button>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
