@@ -79,5 +79,6 @@ button {
     .box {
         font-size: 12rem;
         max-height: 15rem;
+        max-width: 30rem;
     }
 }
