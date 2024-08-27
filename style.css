@@ -74,3 +74,10 @@ button {
 .hide {
     display: none;
 }
+
+@media all and (min-width: 800px) {
+    .box {
+        font-size: 12rem;
+        max-height: 15rem;
+    }
+}
