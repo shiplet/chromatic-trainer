@@ -81,4 +81,8 @@ button {
         max-height: 15rem;
         max-width: 30rem;
     }
+
+    .box.wide {
+        min-width: 24rem;
+    }
 }

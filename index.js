@@ -14,15 +14,8 @@
     "G#",
   ];
   const operators = ["+", "-"];
-  let next = false;
-  let activeNote,
-    operator,
-    interval,
-    intervalForm,
-    answer,
-    reset,
-    check,
-    result;
+  let nextPrompt = false;
+  let activeNote, operator, interval, intervalForm, answer, next, check, result;
 
   const state = {
     note: "",
@@ -46,20 +39,20 @@
     intervalForm = document.getElementById("interval-form");
     interval = document.getElementById("interval");
     answer = document.getElementById("answer");
-    reset = document.getElementById("reset");
+    next = document.getElementById("next");
     check = document.getElementById("check");
     result = document.getElementById("result");
   }
 
   function setListeners() {
-    reset.addEventListener("click", resetPrompt);
+    next.addEventListener("click", resetPrompt);
     intervalForm.addEventListener("submit", checkAnswer);
     answer.addEventListener("input", updateAnswer);
     check.addEventListener("click", checkAnswer);
   }
 
   function resetPrompt() {
-    next = false;
+    nextPrompt = false;
     intervalForm.reset();
     setPrompt();
     swapCheckAndNext();
@@ -100,13 +93,14 @@
     }
 
     displayAnswer(answerIndex, correctIndex);
+    next.focus();
   }
 
   function displayAnswer(answer, correct) {
     const isCorrect =
       answer === correct ? "Correct!" : `Try again: ${notes[correct]}`;
     result.textContent = isCorrect;
-    next = true;
+    nextPrompt = true;
 
     if (isCorrect) {
       swapCheckAndNext();
@@ -114,11 +108,11 @@
   }
 
   function swapCheckAndNext() {
-    if (next) {
-      reset.classList.remove("hide");
+    if (nextPrompt) {
+      next.classList.remove("hide");
       check.classList.add("hide");
     } else {
-      reset.classList.add("hide");
+      next.classList.add("hide");
       check.classList.remove("hide");
     }
   }
